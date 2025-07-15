@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Owner Upload - Flatmate Finder</title>
+  <link rel="stylesheet" href="oldpage.css" />
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Upload Your Flat & Flatmate Details</h1>
+    <p>Fill out the form so seekers can find your listing!</p>
+  </header>
+
+  <form id="uploadForm" novalidate enctype="multipart/form-data">
+    <!-- Flat / Property Details Section -->
+    <fieldset>
+      <legend>Flat / Property Details</legend>
+
+      <div class="form-row">
+        <div class="form-group half-width">
+          <label for="type">Listing Type</label>
+          <select id="type" name="type" required>
+            <option value="" disabled selected>Select type</option>
+            <option value="flat">Flat</option>
+            <option value="mate">Flatmate</option>
+          </select>
+        </div>
+
+        <div class="form-group half-width">
+          <label for="accomType">Accommodation Type</label>
+          <select id="accomType" name="accomType" required>
+            <option value="" disabled selected>Select option</option>
+            <option value="room">Room</option>
+            <option value="whole">Whole property</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="propType">Property Type</label>
+        <select id="propType" name="propType" required>
+          <option value="" disabled selected>Select property type</option>
+          <option>Apartment</option>
+          <option>Condo</option>
+          <option>House</option>
+          <option>Townhouse</option>
+          <option>Basement</option>
+          <option>Loft</option>
+          <option>Studio</option>
+          <option>Trailer</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="title">Listing Title</label>
+        <input id="title" name="title" type="text" placeholder="E.g. Studio Flat near Indiranagar" required />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half-width">
+          <label for="price">Rent (₹ per month)</label>
+          <input id="price" name="price" type="number" min="0" step="500" placeholder="E.g. 18000" required />
+        </div>
+
+        <div class="form-group half-width">
+          <label for="billsIncluded">Bills Included</label>
+          <select id="billsIncluded" name="billsIncluded" required>
+            <option value="" disabled selected>Select option</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half-width">
+          <label for="securityDeposit">Security Deposit (₹)</label>
+          <input id="securityDeposit" name="securityDeposit" type="number" min="0" step="500" placeholder="E.g. 5000" />
+        </div>
+
+        <div class="form-group half-width">
+          <label for="availableFrom">Available From</label>
+          <input id="availableFrom" name="availableFrom" type="date" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="desc">Description</label>
+        <textarea id="desc" name="desc" rows="4" required placeholder="E.g. Well-lit studio with Wi-Fi, AC, and washing machine."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="loc">Location (Area, City)</label>
+        <input id="loc" name="loc" type="text" placeholder="E.g. Indiranagar, Bengaluru" required />
+      </div>
+
+      <fieldset class="subfieldset">
+        <legend>Flat Photos (Required)</legend>
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="imgKitchen">Kitchen Photo</label>
+            <input id="imgKitchen" name="imgKitchen" type="file" accept="image/*" required />
+            <div class="img-preview" id="previewKitchen"></div>
+          </div>
+          <div class="form-group half-width">
+            <label for="imgLiving">Living Room Photo</label>
+            <input id="imgLiving" name="imgLiving" type="file" accept="image/*" required />
+            <div class="img-preview" id="previewLiving"></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="imgRoom">Photo of Room to be Rented</label>
+            <input id="imgRoom" name="imgRoom" type="file" accept="image/*" required />
+            <div class="img-preview" id="previewRoom"></div>
+          </div>
+          <div class="form-group half-width">
+            <label for="imgMore">More Photos (optional)</label>
+            <input id="imgMore" name="imgMore" type="file" accept="image/*" multiple />
+            <div class="img-preview" id="previewMore"></div>
+          </div>
+        </div>
+      </fieldset>
+    </fieldset>
+
+    <!-- Flatmates Section (all optional, up to 4) -->
+    <fieldset>
+      <legend>Flatmate Details (Optional)</legend>
+      <div class="flatmate-section" id="flatmate1">
+        <h3>Flatmate One</h3>
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="mateName1">Name</label>
+            <input id="mateName1" name="mateName1" type="text" placeholder="E.g. Divya Kapoor" />
+          </div>
+          <div class="form-group half-width">
+            <label for="mateGender1">Gender</label>
+            <select id="mateGender1" name="mateGender1">
+              <option value="" selected>Select</option>
+              <option>Female</option>
+              <option>Male</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="mateAge1">Age</label>
+            <input id="mateAge1" name="mateAge1" type="number" min="16" max="99" placeholder="E.g. 22" />
+          </div>
+          <div class="form-group half-width">
+            <label for="mateQualification1">Education/Profession</label>
+            <input id="mateQualification1" name="mateQualification1" type="text" placeholder="E.g. B.Sc. Interior Design" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mateDesc1">Flatmate Bio/Preferences</label>
+          <textarea id="mateDesc1" name="mateDesc1" rows="2" placeholder="Loves interiors, needs pet-friendly space."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="mateImg1">Photo</label>
+          <input id="mateImg1" name="mateImg1" type="file" accept="image/*" />
+          <div class="img-preview" id="matePreview1"></div>
+        </div>
+      </div>
+
+      <!-- Repeat for up to 4 flatmates -->
+      <div class="flatmate-section" id="flatmate2">
+        <h3>Flatmate Two</h3>
+        <!-- The same structure as Flatmate One but with all field IDs and names ending with 2 -->
+        <!-- ...repeat for mates 2, 3, and 4 -->
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="mateName2">Name</label>
+            <input id="mateName2" name="mateName2" type="text" placeholder="E.g. Nikhil Sharma" />
+          </div>
+          <div class="form-group half-width">
+            <label for="mateGender2">Gender</label>
+            <select id="mateGender2" name="mateGender2">
+              <option value="" selected>Select</option>
+              <option>Female</option>
+              <option>Male</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="mateAge2">Age</label>
+            <input id="mateAge2" name="mateAge2" type="number" min="16" max="99" placeholder="E.g. 20" />
+          </div>
+          <div class="form-group half-width">
+            <label for="mateQualification2">Education/Profession</label>
+            <input id="mateQualification2" name="mateQualification2" type="text" placeholder="E.g. B.Tech Computer Science" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mateDesc2">Flatmate Bio/Preferences</label>
+          <textarea id="mateDesc2" name="mateDesc2" rows="2" placeholder="Prefers early mornings, vegetarian kitchen."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="mateImg2">Photo</label>
+          <input id="mateImg2" name="mateImg2" type="file" accept="image/*" />
+          <div class="img-preview" id="matePreview2"></div>
+        </div>
+      </div>
+
+      <div class="flatmate-section" id="flatmate3">
+        <h3>Flatmate Three</h3>
+        <!-- ...fields as above for flatmate three -->
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="mateName3">Name</label>
+            <input id="mateName3" name="mateName3" type="text" />
+          </div>
+          <div class="form-group half-width">
+            <label for="mateGender3">Gender</label>
+            <select id="mateGender3" name="mateGender3">
+              <option value="" selected>Select</option>
+              <option>Female</option>
+              <option>Male</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="mateAge3">Age</label>
+            <input id="mateAge3" name="mateAge3" type="number" min="16" max="99" />
+          </div>
+          <div class="form-group half-width">
+            <label for="mateQualification3">Education/Profession</label>
+            <input id="mateQualification3" name="mateQualification3" type="text" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mateDesc3">Flatmate Bio/Preferences</label>
+          <textarea id="mateDesc3" name="mateDesc3" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="mateImg3">Photo</label>
+          <input id="mateImg3" name="mateImg3" type="file" accept="image/*" />
+          <div class="img-preview" id="matePreview3"></div>
+        </div>
+      </div>
+
+      <div class="flatmate-section" id="flatmate4">
+        <h3>Flatmate Four</h3>
+        <!-- ...fields as above for flatmate four -->
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="mateName4">Name</label>
+            <input id="mateName4" name="mateName4" type="text"/>
+          </div>
+          <div class="form-group half-width">
+            <label for="mateGender4">Gender</label>
+            <select id="mateGender4" name="mateGender4">
+              <option value="" selected>Select</option>
+              <option>Female</option>
+              <option>Male</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="mateAge4">Age</label>
+            <input id="mateAge4" name="mateAge4" type="number" min="16" max="99" />
+          </div>
+          <div class="form-group half-width">
+            <label for="mateQualification4">Education/Profession</label>
+            <input id="mateQualification4" name="mateQualification4" type="text" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mateDesc4">Flatmate Bio/Preferences</label>
+          <textarea id="mateDesc4" name="mateDesc4" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="mateImg4">Photo</label>
+          <input id="mateImg4" name="mateImg4" type="file" accept="image/*" />
+          <div class="img-preview" id="matePreview4"></div>
+        </div>
+      </div>
+    </fieldset>
+
+    <button type="submit">Submit Listing</button>
+  </form>
+  <div id="successMessage" class="hidden">Your listing was submitted successfully!</div>
+</div>
+<script src="oldpage.js"></script>
+</body>
+</html>
