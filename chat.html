@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flatmate Finder Chat</title>
+  <link rel="stylesheet" href="chat.css" />
+</head>
+<body>
+  <div class="window">
+    <aside class="sidebar">
+      <button class="back-btn" title="Back to Chat List">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+             stroke="#bfae9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             class="feather feather-message-square">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </button>
+    </aside>
+
+    <main class="chat-panel">
+      <header class="chat-header">
+        <div class="profile-pic"></div>
+        <span class="chat-title">Flatmate Chat</span>
+      </header>
+
+      <div class="chat-body" id="chat-window">
+        <ul id="messages"></ul>
+      </div>
+
+      <form id="chat-form" class="chat-input-row" autocomplete="off">
+        <button type="button" id="emoji-btn" class="icon-btn" title="Emoji">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#bfae9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+            <line x1="9" y1="9" x2="9.01" y2="9"/>
+            <line x1="15" y1="9" x2="15.01" y2="9"/>
+          </svg>
+        </button>
+
+        <input type="text" id="message-input" placeholder="Type a message" required />
+
+        <button type="submit" class="icon-btn send-btn" title="Send">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#bfae9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </form>
+
+      <div id="emoji-picker" class="emoji-picker hidden"></div>
+    </main>
+  </div>
+
+  <script src="chat.js"></script>
+  <script src="chat-user.js"></script>
+</body>
+</html>
